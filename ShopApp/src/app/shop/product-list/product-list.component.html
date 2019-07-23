@@ -1,0 +1,46 @@
+<div class="row border m-3 p-3 mb-4" *ngIf='selectedProduct'>
+    <div class="col-md-2">
+        <img class='img-fluid' src="/assets/img/{{selectedProduct.imageUrl}}" >
+    </div>
+    <div class="col-md-10">
+        <h5 class="card-title">
+            {{selectedProduct.name}}
+        </h5>
+        <p class="card-text">
+            {{selectedProduct.description}}
+        </p>
+        <button class='btn btn-danger btn-sm' (click)="hideDetails()">Cancel Selected</button>
+        <button (click)="addProductToCart(selectedProduct)" class="btn btn-outline-primary btn-sm ml-3">
+            Add to card
+        </button>
+    </div>   
+</div>
+
+<div class='row' >
+    <div class="col-md-4" *ngFor="let p of products">
+        <div class="card mb-3">
+            <img src="/assets/img/{{p.imageUrl}}" alt="{{p.name}}">
+            <div class="car-body">
+                <h4 class="car-title">
+                    <h4>
+                        {{p.name}}
+                    </h4>
+                     
+                </h4>
+                <small class="badge badge-pill badge-dark float-right">
+                        {{p.price | currency:"USD":'symbol':'2.2-2'}}
+                    
+                </small>
+                
+            </div>
+            <div class="card-footer text-center">
+                <button (click)='displayDetails(p)'class="btn btn-outline-primary btn-sm">
+                    Details
+                </button>
+                <button (click)="addProductToCart(p)" class="btn btn-outline-primary btn-sm ml-3">
+                    Add to card
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

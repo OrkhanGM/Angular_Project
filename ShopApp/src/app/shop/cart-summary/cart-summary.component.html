@@ -1,0 +1,8 @@
+<div class="alert alert-succes">
+    <span *ngIf='cart.itemCount>0'>
+    Your cart:    {{cart.itemCount}} item(s)   {{cart.total | currency:'USD':'symbol':'2.2-2'}} 
+       
+    </span>
+    <span *ngIf="cart.itemCount==0">Your cart is empty</span>
+    <i class="fas fa-shopping-cart"></i>
+</div>
